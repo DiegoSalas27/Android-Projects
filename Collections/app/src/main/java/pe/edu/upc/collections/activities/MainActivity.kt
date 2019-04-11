@@ -11,6 +11,7 @@ import pe.edu.upc.collections.fragments.HomeFragment
 import pe.edu.upc.collections.fragments.ItemsFragment
 import pe.edu.upc.collections.fragments.SettingsFragment
 
+//context te dice en que activiyt estas
 class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
