@@ -11,10 +11,10 @@ import pe.edu.upc.collections.fragments.HomeFragment
 import pe.edu.upc.collections.fragments.ItemsFragment
 import pe.edu.upc.collections.fragments.SettingsFragment
 
-//context te dice en que activiyt estas
 class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
         navigateTo(item)
     }
 
@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigateTo(navigation.menu.findItem(R.id.navigation_home))
     }
+
+
 
     private fun getFragmentFor(item: MenuItem) : Fragment {
         when (item.itemId) {
@@ -47,5 +49,4 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.content, getFragmentFor(item))
             .commit() > 0
     }
-
 }

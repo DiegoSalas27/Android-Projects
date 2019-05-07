@@ -5,7 +5,6 @@ import com.androidnetworking.AndroidNetworking
 import com.jacksonandroidnetworking.JacksonParserFactory
 
 class ConnectivityApp : Application() {
-
     override fun onCreate() {
         super.onCreate()
         AndroidNetworking.initialize(applicationContext)

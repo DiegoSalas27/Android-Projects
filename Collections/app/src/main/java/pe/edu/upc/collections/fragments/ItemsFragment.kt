@@ -24,19 +24,20 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class ItemsFragment : Fragment() {
-    lateinit var itemsRecyclerView: RecyclerView //promise dont initialize now
+    lateinit var itemsRecyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_items, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState) //refinamiento(invoca al metodo del padre) o remplazo(no lo invoca) //recyclerview delega
+        super.onViewCreated(view, savedInstanceState)
         itemsRecyclerView = view.itemsRecyclerView
         itemsRecyclerView.apply {
             layoutManager = LinearLayoutManager(view.context)
-            adapter = ItemsAdapter(listOf(ItemClass("", "Dominic", "Toretto")))
+            adapter = ItemsAdapter(listOf(
+                ItemClass("", "John", "Doe"),
+                ItemClass("", "Carol", "Danvers")))
         }
     }
-
 }

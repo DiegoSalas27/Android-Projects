@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".activities.ItemActivity"
-                android:label="@string/title_activity_item_activvity"
+                android:label="@string/title_activity_item"
                 android:parentActivityName=".activities.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data

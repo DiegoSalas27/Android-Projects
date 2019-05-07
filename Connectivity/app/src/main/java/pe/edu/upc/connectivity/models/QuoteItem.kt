@@ -12,11 +12,11 @@ data class QuoteItem(
     val id: String,
     val permalink: String
 ) {
-    constructor() : this (
+    constructor() : this(
         "",
         "",
         "",
-         ArrayList<String>(),
+        ArrayList<String>(),
         "",
         "",
         "",

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.content_item.view.*
 import pe.edu.upc.collections.R
@@ -15,26 +16,26 @@ import pe.edu.upc.collections.models.ItemClass
 
 class ItemsAdapter(private var items: List<ItemClass>) :
         RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var lastNameTextView: TextView
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
         var firstNameTextView: TextView
+        var lastNameTextView: TextView
         var contentItem: ConstraintLayout
         init {
-            lastNameTextView = itemView.lastName
             firstNameTextView = itemView.firstName
+            lastNameTextView = itemView.lastName
             contentItem = itemView.contentItem
         }
         fun bindTo(item: ItemClass) {
-            lastNameTextView.text = item.lastName
             firstNameTextView.text = item.firstName
+            lastNameTextView.text = item.lastName
             contentItem.setOnClickListener {
                 val bundle = Bundle()
-                bundle.apply{
+                bundle.apply {
                     putString("first_name", item.firstName)
                     putString("last_name", item.lastName)
                 }
-                var intent = Intent(it.context, ItemActivity::class.java)
-                intent.putExtras(bundle) //intent:inicia tal actividad. El context es en que activity estoy
+                val intent = Intent(it.context, ItemActivity::class.java)
+                intent.putExtras(bundle)
                 it.context.startActivity(intent)
             }
         }
@@ -44,7 +45,7 @@ class ItemsAdapter(private var items: List<ItemClass>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsAdapter.ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.content_item, parent, false))
+                .inflate(R.layout.content_item, parent, false ))
     }
 
     override fun getItemCount(): Int {

@@ -50,21 +50,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestQuoteOfDay() {
         AndroidNetworking.get(QuotesApi.quoteOfDayUrl())
-            .addQueryParameter("category", "students")
+            .addQueryParameter("category", "students") //http://quotes.rest/qod.json/?category=students
             .setPriority(Priority.LOW)
             .setTag(TAG)
             .build()
             .getAsObject(QuoteOfDayResponse::class.java,
                 object: ParsedRequestListener<QuoteOfDayResponse> {
                     override fun onResponse(response: QuoteOfDayResponse?) {
-                        response?.apply { //if this has value
-                            success?.apply {
-                                Log.i(TAG, "Total results:, ${total}")
+                        response?.apply {
+                            success.apply {
+                                Log.i(TAG, "Total results: ${total}")
                             }
-                            contents?.apply {
+                            contents.apply {
                                 quotes.forEach {
                                     Log.i(TAG, "Quote: ${it.quote}")
-                                    Log.i(TAG, "Tags: ${it.tags.joinToString()}") //jointoString collections de strings en un solo string y los separa por comas.
+                                    Log.i(TAG, "Tags: ${it.tags.joinToString()}")
                                     Log.i(TAG, "Background: ${it.background}")
                                     backgroundImageView.setDefaultImageResId(R.mipmap.ic_launcher)
                                     backgroundImageView.setErrorImageResId(R.mipmap.ic_launcher)
@@ -76,11 +76,10 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onError(anError: ANError?) {
-                        anError?.apply {
-                            Log.d(TAG, message)
-                        }
+                        anError?.apply { Log.d(TAG, "${this.errorBody}")}
                     }
 
                 })
+
     }
 }

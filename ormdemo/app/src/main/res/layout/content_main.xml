@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This App lets you keep a database of people info. As a bonus feature You will see people percent distribution by Gender. \n\nIf necessary you can clear database at any moment."
+        android:id="@+id/introTextView"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameEditText"
+        android:hint="Name"
+        android:layout_below="@+id/introTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailEditText"
+        android:hint="E-mail"
+        android:layout_below="@+id/nameEditText"
+        android:layout_alignParentStart="true"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="1"
+        android:alignmentMode="alignBounds"
+        android:orientation="horizontal"
+        android:useDefaultMargins="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/genderSwitch"
+            android:checked="false"
+            android:buttonTint="@color/colorAccent"
+            android:layout_alignBottom="@+id/maleTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:hint="Gender (Left for Male or Right for Female)"
+            />
+
+    </GridLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:alignmentMode="alignBounds"
+        android:orientation="horizontal"
+        android:useDefaultMargins="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Males"
+            android:id="@+id/malesTextView"
+            android:layout_above="@+id/malesProgressBar"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 %"
+            android:id="@+id/malesMaxTextView"
+            android:layout_gravity="right"/>
+
+    </GridLayout>
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/malesProgressBar"
+        android:max="100"
+        android:progress="0"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:useDefaultMargins="true">
+        android:columnCount="2"
+        android:rowCount="1"
+        android:alignmentMode="alignBounds"
+        android:orientation="horizontal"
+        android:useDefaultMargins="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Females"
+            android:id="@+id/femalesTextView"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 %"
+            android:id="@+id/femalesMaxTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"/>
+
+    </GridLayout>
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/femalesProgressBar"
+        android:max="100"
+        android:progress="0"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/femalesTextView"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clearAll"
+        android:text="Clear Database"
+        android:id="@+id/clearDatabaseButton"
+        android:layout_below="@+id/malesProgressBar"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="left"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

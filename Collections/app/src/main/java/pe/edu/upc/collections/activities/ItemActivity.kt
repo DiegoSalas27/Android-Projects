@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import pe.edu.upc.collections.R
 
 import kotlinx.android.synthetic.main.activity_item.*
-import kotlinx.android.synthetic.main.content_items.*
+import kotlinx.android.synthetic.main.content_item2.*
 
 class ItemActivity : AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class ItemActivity : AppCompatActivity() {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        intent?.extras?.apply {//si inicia invocado desde un item haz esto
+        intent?.extras?.apply {
             firstNameTextView.text = getString("first_name")
             lastNameTextView.text = getString("last_name")
         }
